@@ -66,7 +66,7 @@ export default function HeroSlider() {
               ${slide.align === 'center' ? 'items-center text-center' : slide.align === 'left' ? 'items-center text-center md:items-start md:text-left' : 'items-center text-center md:items-end md:text-right'}`}
             >
               <h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 md:mb-6 tracking-wide drop-shadow-lg whitespace-pre-line"
+                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white mb-4 md:mb-6 tracking-wide drop-shadow-lg whitespace-pre-line"
                 data-swiper-parallax="-50%"
                 data-swiper-parallax-opacity="0"
                 data-swiper-parallax-duration="800"
@@ -74,7 +74,7 @@ export default function HeroSlider() {
                 {slide.title}
               </h1>
               <p 
-                className="text-sm md:text-base lg:text-xl text-white/90 mb-8 md:mb-10 font-light tracking-widest uppercase drop-shadow-md"
+                className="text-sm md:text-base lg:text-lg xl:text-xl text-white/90 mb-8 md:mb-10 font-light tracking-widest uppercase drop-shadow-md"
                 data-swiper-parallax="-40%"
                 data-swiper-parallax-opacity="0"
                 data-swiper-parallax-duration="800"

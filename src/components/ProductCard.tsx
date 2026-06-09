@@ -36,7 +36,7 @@ export default function ProductCard({ id, title, price, imageUrl, isNew }: Produ
         />
         
         {/* Add to cart overlay */}
-        <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+        <div className="absolute bottom-0 left-0 w-full translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-20">
           <button 
             onClick={() => addCartItem({ id, title, price, imageUrl, size: selectedSize, color: selectedColor })}
             className="w-full cursor-pointer bg-brand-black text-white py-4 flex items-center justify-center space-x-2 text-sm font-medium tracking-widest uppercase hover:bg-gray-800 transition-colors"
