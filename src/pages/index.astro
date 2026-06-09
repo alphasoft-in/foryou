@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProductCard from '../components/ProductCard';
+import HeroSlider from '../components/HeroSlider';
+
+const products = [
+  {
+    id: '1',
+    title: 'Body Sienna',
+    price: 110.00,
+    imageUrl: '/images/productos/body-sienna.webp',
+    isNew: true
+  },
+  {
+    id: '2',
+    title: 'Corset Dali',
+    price: 135.00,
+    imageUrl: '/images/productos/corset-dali.webp',
+    isNew: true
+  },
+  {
+    id: '3',
+    title: 'Corset Lea',
+    price: 125.00,
+    imageUrl: '/images/productos/corset-lea.webp',
+    isNew: false
+  },
+  {
+    id: '4',
+    title: 'Corset Lucia',
+    price: 140.00,
+    imageUrl: '/images/productos/corset-lucia.webp',
+    isNew: true
+  },
+  {
+    id: '5',
+    title: 'Corset Zenit',
+    price: 145.00,
+    imageUrl: '/images/productos/corset-zenit.webp',
+    isNew: false
+  },
+  {
+    id: '6',
+    title: 'Sweater Salma',
+    price: 160.00,
+    imageUrl: '/images/productos/sweater-salma.jpg',
+    isNew: false
+  }
+];
+---
+
+<Layout title="Inicio">
+  <Header currentPath={Astro.url.pathname} client:load />
+
+  <main class="flex-grow">
+    {/* Hero Section */}
+    <HeroSlider client:load />
+
+    {/* Featured Collection Section */}
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl md:text-3xl font-light tracking-widest uppercase mb-4">Novedades</h2>
+          <div class="w-16 h-px bg-brand-black mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {products.map(product => (
+            <ProductCard 
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              imageUrl={product.imageUrl}
+              isNew={product.isNew}
+              client:visible
+            />
+          ))}
+        </div>
+        
+        <div class="text-center mt-16">
+          <a 
+            href="/shop" 
+            class="inline-block border border-brand-black text-brand-black px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-brand-black hover:text-white transition-colors duration-300"
+          >
+            Ver Todo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Brand Story Snippet */}
+    <section class="py-24 bg-brand-gray">
+      <div class="container mx-auto px-6 text-center max-w-3xl">
+        <h2 class="text-xl md:text-2xl font-light tracking-widest uppercase mb-6 md:mb-8">Nuestra Esencia</h2>
+        <p class="text-base md:text-lg text-gray-600 leading-relaxed font-light">
+          Moda fresca y en tendencia diseñada para señoritas. Creemos en resaltar tu estilo único combinando siluetas modernas, comodidad y versatilidad para tu día a día, siempre con ese toque de elegancia que te caracteriza.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
